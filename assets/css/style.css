@@ -351,7 +351,7 @@ preloader
   overflow: hidden;
   position: relative;
   background: linear-gradient(0deg, rgb(42, 44, 57) 0%, rgb(51, 54, 74) 100%);
-  background: url("../img/bg3.jpg");
+  background: url("../img/bg4.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
