@@ -1663,3 +1663,35 @@ section {
 .blog-page .single-blog.blog-details {
   padding: 0px 20px 30px 20px;
 }
+
+/* Blog Page Grid Area End */
+
+.like-btn {
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  color: #555;
+  font-size: 16px;
+}
+
+.like-btn:hover {
+  color: #f00; /* Change to your desired hover color */
+}
+
+.like-btn .icon {
+  display: inline-block;
+  margin-right: 5px; /* Adjust the margin to your liking */
+}
+
+.like-btn .icon::before {
+  content: "\2665"; /* Unicode for heart symbol */
+}
+
+.like-btn .count {
+  display: inline-block;
+  margin-left: 5px; /* Adjust the margin to your liking */
+}
+
+
