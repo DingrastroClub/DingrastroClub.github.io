@@ -356,7 +356,12 @@ preloader
   background-position: center;
   background-repeat: no-repeat;
   padding: 0;
+  backface-visibility:hidden;
+  animation: hero 30s infinite 1s;
+  animation-timing-function: ease-in-out;
 }
+
+
 #hero .carousel-container {
   display: flex;
   justify-content: center;
@@ -1510,7 +1515,7 @@ section {
 .breadcrumbs ol li+li::before {
   display: inline-block;
   padding-right: 10px;
-  color: #404356;
+  color: #ffffff;
   content: "/";
 }
 
@@ -1532,9 +1537,11 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #14151c;
-  color: #fff;
-  font-size: 14px;
+  background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);
+  background: rgb(0, 0, 0);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   text-align: center;
   padding: 30px 0;
   
@@ -1543,7 +1550,7 @@ section {
 #footer h3 {
   font-size: 36px;
   font-weight: 700;
-  color: #fff;
+  color: #ffffff;
   position: relative;
   font-family: "Poppins", sans-serif;
   padding: 0;
@@ -1590,3 +1597,71 @@ section {
   font-size: 13px;
 }
 
+/* Blog Area Start */
+.blog-section {
+  padding: 120px 0px 120px;
+}
+.blog-section .section-heading {
+  margin-bottom: 56px;
+}
+
+.single-blog .img {
+  position: relative;
+  border-radius: 13px;
+  overflow: hidden;
+}
+.single-blog .img::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: all 0.3s ease-in;
+}
+.single-blog .img img {
+  width: 100%;
+}
+.single-blog .content .top-meta {
+  margin-top: 23px;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+.single-blog .content .top-meta li {
+  display: inline-block;
+  margin-right: 20px;
+}
+.single-blog .content .top-meta li:last-child {
+  margin-right: 0px;
+}
+.single-blog .content .top-meta li p {
+  margin-bottom: 11px;
+}
+.single-blog .content .title {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease-in;
+}
+.single-blog .content .title:hover {
+  color: #0250c5;
+}
+.single-blog:hover .img::after {
+  opacity: 1;
+}
+
+/* Blog Area End */
+/* Blog Page Grid Area Start */
+.blog-page {
+  padding: 120px 0px 120px;
+}
+.blog-page .single-blog {
+  margin-bottom: 26px;
+}
+.blog-page .single-blog.blog-details {
+  padding: 0px 20px 30px 20px;
+}
+
+/* Blog Page Grid Area End */
