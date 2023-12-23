@@ -21,9 +21,15 @@
 
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<link rel='stylesheet' id='wp-snow-effect-css' href='https://www.digitalseries.in/wp-content/plugins/wp-snow-effect/public/css/wp-snow-effect-public.css?ver=1.0.0' media='all' />
 
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="styles.css"> <!-- Link your CSS file -->
+<script src="https://www.digitalseries.in/wp-content/plugins/wp-snow-effect/public/js/jsnow.js?ver=1.5" id="jsnow-js"></script>
+<script id="wp-snow-effect-js-extra">
+var snoweffect = {"show":"1","flakes_num":"50","falling_speed_min":"3","falling_speed_max":"3","flake_max_size":"30","flake_min_size":"10","vertical_size":"800","flake_color":"#efefef","flake_zindex":"100000","flake_type":"#10054","fade_away":"1"};
+</script>
+<script src="https://www.digitalseries.in/wp-content/plugins/wp-snow-effect/public/js/wp-snow-effect-public.js?ver=1.0.0" id="wp-snow-effect-js"></script>
 
 <script src="snowfall.js"></script>
 	<meta name='robots' content='max-image-preview:large' />
@@ -927,58 +933,7 @@
 											</div>
 										</div>
 									</div>
-									<script>
-    // Function to generate a random number within a range
-    function randomInRange(min, max) {
-        return Math.random() * (max - min) + min;
-    }
 
-    // Set snowfall parameters
-    let snowflakes = [];
-    const numSnowflakes = 80;
-
-    for (let i = 0; i < numSnowflakes; i++) {
-        let snowflake = {
-            x: randomInRange(0, window.innerWidth),
-            y: randomInRange(0, window.innerHeight),
-            radius: randomInRange(20, 30),
-            speedX: randomInRange(-1, 1), // Horizontal speed
-            speedY: randomInRange(1, 2),  // Vertical speed
-            text: "❄",
-            color: "rgb(255, 255, 255)"
-        };
-        snowflakes.push(snowflake);
-    }
-
-    // Snowfall animation
-    function animateSnowfall() {
-        let canvas = document.getElementById("snowfallCanvas");
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        let ctx = canvas.getContext("2d");
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        for (let flake of snowflakes) {
-            ctx.fillStyle = flake.color;
-            ctx.font = flake.radius + "px Arial";
-            ctx.fillText(flake.text, flake.x, flake.y);
-
-            flake.y += flake.speedY;
-            flake.x += flake.speedX;
-
-            // Reset snowflake position when it goes out of the screen
-            if (flake.y > window.innerHeight || flake.x > window.innerWidth || flake.x < 0) {
-                flake.y = 0;
-                flake.x = randomInRange(0, window.innerWidth);
-            }
-        }
-
-        requestAnimationFrame(animateSnowfall);
-    }
-
-    animateSnowfall();
-</script>
 									
 									<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-6bb4afa8 elementor-invisible"
 										data-id="6bb4afa8" data-element_type="column"
