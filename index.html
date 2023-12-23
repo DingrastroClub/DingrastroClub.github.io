@@ -928,22 +928,57 @@
 										</div>
 									</div>
 									<script>
-let snowfall = new Snowfall({
-    // number of snowflakes
-    count: 100,
-    // min/max size
-    minRadius: 10,
-    maxRadius: 30,
-    // min/max speed
-    minSpeed: 3,
-    maxSpeed: 10,
-    // custom symbol or text for snowflakes
-    text: "\u2744", 
-    // color of snowflakes
-    color: "#ffffff",
-    // z-index for the canvas
-    zIndex: "1000" 
-});</script>
+    // Function to generate a random number within a range
+    function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    // Set snowfall parameters
+    let snowflakes = [];
+    const numSnowflakes = 100;
+
+    for (let i = 0; i < numSnowflakes; i++) {
+        let snowflake = {
+            x: randomInRange(0, window.innerWidth),
+            y: randomInRange(0, window.innerHeight),
+            radius: randomInRange(20, 30),
+            speedX: randomInRange(-1, 1), // Horizontal speed
+            speedY: randomInRange(1, 2),  // Vertical speed
+            text: "❄",
+            color: "#99ccff"
+        };
+        snowflakes.push(snowflake);
+    }
+
+    // Snowfall animation
+    function animateSnowfall() {
+        let canvas = document.getElementById("snowfallCanvas");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (let flake of snowflakes) {
+            ctx.fillStyle = flake.color;
+            ctx.font = flake.radius + "px Arial";
+            ctx.fillText(flake.text, flake.x, flake.y);
+
+            flake.y += flake.speedY;
+            flake.x += flake.speedX;
+
+            // Reset snowflake position when it goes out of the screen
+            if (flake.y > window.innerHeight || flake.x > window.innerWidth || flake.x < 0) {
+                flake.y = 0;
+                flake.x = randomInRange(0, window.innerWidth);
+            }
+        }
+
+        requestAnimationFrame(animateSnowfall);
+    }
+
+    animateSnowfall();
+</script>
 									
 									<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-6bb4afa8 elementor-invisible"
 										data-id="6bb4afa8" data-element_type="column"
